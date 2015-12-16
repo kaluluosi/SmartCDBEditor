@@ -1,0 +1,1 @@
+This is an script editor  developed for open source scripting engine  YGOpro. This editor will make user more conveniently to edit YGOpro scripts and test scripts.

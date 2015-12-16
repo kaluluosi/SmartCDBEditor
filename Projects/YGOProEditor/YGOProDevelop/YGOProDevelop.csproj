@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56106483-2EBA-4123-B879-E8DE17FB2D29}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YGOProDevelop</RootNamespace>
+    <AssemblyName>SmartCDBEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.99.0\lib\net45\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.99.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.99.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Builder\AttributeField.cs" />
+    <Compile Include="Builder\CardBuilder.cs" />
+    <Compile Include="Builder\CategoryField.cs" />
+    <Compile Include="Builder\Field.cs" />
+    <Compile Include="Builder\OtField.cs" />
+    <Compile Include="Builder\RaceField.cs" />
+    <Compile Include="Builder\SetCodeField.cs" />
+    <Compile Include="Builder\TypeField.cs" />
+    <Compile Include="CDB\CDBManager.cs" />
+    <Compile Include="Cfg\ConfigManager.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Cfg\SettingConfig.cs" />
+    <Compile Include="Cfg\VarItem.cs" />
+    <Compile Include="Converters\AtkDefConverter.cs" />
+    <Compile Include="Converters\Attr2SourceConverter.cs" />
+    <Compile Include="Converters\Field2StringConverter.cs" />
+    <Compile Include="Converters\ID2SourceConverter.cs" />
+    <Compile Include="Converters\Race2SourceConverter.cs" />
+    <Compile Include="Converters\SelectModeConverter.cs" />
+    <Compile Include="Converters\SubType2SourceConverter.cs" />
+    <Compile Include="Converters\Type2SourceConverter.cs" />
+    <Compile Include="Converters\Type2VisibilityConverter.cs" />
+    <Compile Include="datas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InputIDDialog.xaml.cs">
+      <DependentUpon>InputIDDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="texts.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Page Include="CDBEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InputIDDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CDBEditor.xaml.cs">
+      <DependentUpon>CDBEditor.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Content Include="Data\StarLevel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Type.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\SetCode.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Race.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Ot.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Category.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Attribute.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="pics\27551.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\icon.ico" />
+    <Resource Include="Resources\魔陷卡类型\普通.png" />
+    <Resource Include="Resources\魔陷卡类型\仪式.png" />
+    <Resource Include="Resources\魔陷卡类型\反击.png" />
+    <Resource Include="Resources\魔陷卡类型\场地.png" />
+    <Resource Include="Resources\魔陷卡类型\永续.png" />
+    <Resource Include="Resources\魔陷卡类型\装备.png" />
+    <Resource Include="Resources\魔陷卡类型\速攻.png" />
+    <Resource Include="Resources\种族\水.png" />
+    <Resource Include="Resources\种族\兽.png" />
+    <Resource Include="Resources\种族\兽战士.png" />
+    <Resource Include="Resources\种族\恐龙.png" />
+    <Resource Include="Resources\种族\幻神兽.png" />
+    <Resource Include="Resources\种族\龙.png" />
+    <Resource Include="Resources\种族\天使.png" />
+    <Resource Include="Resources\种族\恶魔.png" />
+    <Resource Include="Resources\种族\鱼.png" />
+    <Resource Include="Resources\种族\昆虫.png" />
+    <Resource Include="Resources\种族\机械.png" />
+    <Resource Include="Resources\种族\植物.png" />
+    <Resource Include="Resources\种族\念动力.png" />
+    <Resource Include="Resources\种族\炎.png" />
+    <Resource Include="Resources\种族\爬虫.png" />
+    <Resource Include="Resources\种族\岩石.png" />
+    <Resource Include="Resources\种族\海龙.png" />
+    <Resource Include="Resources\种族\魔法师.png" />
+    <Resource Include="Resources\种族\雷.png" />
+    <Resource Include="Resources\种族\战士.png" />
+    <Resource Include="Resources\种族\鸟兽.png" />
+    <Resource Include="Resources\种族\不死.png" />
+    <Resource Include="Resources\属性\光.png" />
+    <Resource Include="Resources\属性\暗.png" />
+    <Resource Include="Resources\属性\水.png" />
+    <Resource Include="Resources\属性\炎.png" />
+    <Resource Include="Resources\属性\地.png" />
+    <Resource Include="Resources\属性\风.png" />
+    <Resource Include="Resources\属性\神.png" />
+    <Resource Include="Resources\属性\魔.png" />
+    <Resource Include="Resources\属性\陷.png" />
+    <Resource Include="Resources\类型\cardFrame_0.png" />
+    <Resource Include="Resources\类型\cardFrame_1.png" />
+    <Resource Include="Resources\类型\cardFrame_2.png" />
+    <Resource Include="Resources\类型\cardFrame_3.png" />
+    <Resource Include="Resources\类型\cardFrame_4.png" />
+    <Resource Include="Resources\类型\cardFrame_5.png" />
+    <Resource Include="Resources\类型\cardFrame_6.png" />
+    <Resource Include="Resources\类型\cardFrame_7.png" />
+    <Resource Include="Resources\类型\cardFrame_8.png" />
+    <Resource Include="Resources\等级\levelStar.png" />
+    <Resource Include="Resources\等级\level_1-4.png" />
+    <Resource Include="Resources\等级\level_1.png" />
+    <Resource Include="Resources\等级\level_10.png" />
+    <Resource Include="Resources\等级\level_11.png" />
+    <Resource Include="Resources\等级\level_12.png" />
+    <Resource Include="Resources\等级\level_2.png" />
+    <Resource Include="Resources\等级\level_3.png" />
+    <Resource Include="Resources\等级\level_4.png" />
+    <Resource Include="Resources\等级\level_5-6.png" />
+    <Resource Include="Resources\等级\level_5.png" />
+    <Resource Include="Resources\等级\level_6.png" />
+    <Resource Include="Resources\等级\level_7.png" />
+    <Resource Include="Resources\等级\level_7up.png" />
+    <Resource Include="Resources\等级\level_8.png" />
+    <Resource Include="Resources\等级\level_9.png" />
+    <Resource Include="Resources\boss_BlueEyedWhiteDragon.png" />
+    <Resource Include="Resources\0000.png" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="cards.cdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Design\" />
+    <Folder Include="Rules\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.99.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.99.0\build\net45\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此项目引用这台计算机上缺少的 NuGet 程序包。使用 NuGet 程序包还原可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.99.0\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.99.0\build\net45\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
